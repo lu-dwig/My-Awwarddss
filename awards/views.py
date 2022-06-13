@@ -76,3 +76,9 @@ def delete(request,pk):
     messages.success(request, 'project deleted successfully!')
     return redirect('home')
 
+def create(request):
+    url = f'http://127.0.0.1:8000/api/posst-create/'
+    res = requests.delete(url)
+    print(res)
+    messages.success(request, 'project deleted successfully!')
+    return redirect('home')
