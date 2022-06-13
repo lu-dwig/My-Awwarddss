@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Post, Ratings
 from users.forms import  PostForm, RatingsForm
 from django.contrib import messages
+from rest_framework.response import Response
 from pyuploadcare.dj.forms import ImageField
 import requests
 
@@ -62,7 +63,7 @@ def detail(request,pk):
 
     context = {
         'ratings': ratings,
-        'project': response,
+        'post': response,
         'form' : form,
         'rated': rated
     }

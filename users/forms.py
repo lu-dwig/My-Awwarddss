@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
 from pyuploadcare.dj.forms import ImageField
-from awards.models import Post, Rating
+from awards.models import Post, Ratings
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -34,6 +34,6 @@ class ProfileUpdateForm(forms.ModelForm):
 
 class RatingsForm(forms.ModelForm):
     class Meta:
-        model = Rating
+        model = Ratings
         fields = ['design', 'usability', 'content']
  
