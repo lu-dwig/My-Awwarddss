@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'awards.apps.AwardsConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

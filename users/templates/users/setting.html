@@ -10,24 +10,24 @@
             <div class="d-flex text-muted pt-3">
                 <img class="image-fluid rounded-circle account-img" src="{{user.profile.image.url}}" alt="{{user.username}} profile picture">
                 <div class="pb-3 mb-0 small lh-sm w-100">
-                  <div class="d-flex">
-                    <strong class="text-gray-dark">{{user.email}}</strong>
-                  </div>
-                  <span class="d-block">@{{user.username}}</span>
+                    <div class="d-flex">
+                      <strong class="text-gray-dark">{{user.email}}</strong>
+                    </div>
+                    <span class="d-block">@{{user.username}}</span>
                 </div>
               </div>
         </section>
         <section>
-          <form method="POST" class="border p-5" enctype="multipart/form-data">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-info text-white" type="submit">Update</button>
-            </div>
-          </form>
+            <form method="POST" class="border p-5" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-info text-white" type="submit">Update</button>
+                </div>
+            </form>
         </section>
     </div>
 </div>
