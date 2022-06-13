@@ -7,6 +7,7 @@ from awards.models import Post
 from .serializers import PostSerializer
 from awards.models import Post
 
+
 # Create your views here.
 
 @api_view(['GET'])
@@ -22,14 +23,14 @@ def apiOverview(request):
 
 @api_view(['GET'])
 def postList(request):
-    posts = Post.objects.all()
-    serializer = PostSerializer(posts, many=True)
+    post = Post.objects.all()
+    serializer = PostSerializer(post, many=True)
     return Response(serializer.data)
 
 @api_view(['POST'])
 def postDetail(request,pk):
-    posts = Post.objects.get(id=pk)
-    serializer = PostSerializer(posts, many=False)
+    post = Post.objects.get(id=pk)
+    serializer = PostSerializer(post, many=False)
     return Response(serializer.data)
 
 @api_view(['POST'])
@@ -41,10 +42,17 @@ def postCreate(request):
 
 @api_view(['POST'])
 def postUpdate(request, pk):
-    posts = Post.objects.get(id=pk)
+    post = Post.objects.get(id=pk)
     
-    serializer = PostSerializer(instance=posts, data=request.data)
+    serializer = PostSerializer(instance=post, data=request.data)
     if serializer.is_valid():
         serializer.save()
         
     return Response(serializer.data)
+
+@api_view(['DELETE'])
+def postDelete(request, pk):
+    post = Post.objects.get(id=pk)
+    post.delete
+    
+    return Response('Item Successfully Deleted')
