@@ -36,7 +36,7 @@ class Post(models.Model):
         return reverse('post-detail', kwargs={'pk': self.pk})
     
     
-class Rating(models.Model):
+class Ratings(models.Model):
     rating = (
         (1, '1'),
         (2, '2'),
@@ -65,11 +65,11 @@ class Rating(models.Model):
 
     @classmethod
     def get_ratings(cls, id):
-        ratings = Rating.objects.filter(post_id=id).all()
+        ratings = Ratings.objects.filter(post_id=id).all()
         return ratings
 
     def __str__(self):
-        return f'{self.post} Rating'
+        return f'{self.post} Ratings'
 
 
 
