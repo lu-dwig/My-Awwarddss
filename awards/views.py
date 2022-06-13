@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-from users.forms import  PostForm
+from users.forms import  PostForm, RatingsForm
 from pyuploadcare.dj.forms import ImageField
 import random
 
