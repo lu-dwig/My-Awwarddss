@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from pyuploadcare import Uploadcare
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
 ]
+
+UPLOADCARE ={
+    'pub_key' : '2b709bca64245dd9e55e',
+    'secret':'django-insecure-tnfjal$7+z-fn61jnc!&$)k)#j(14losqo-h6koer+@2rtim*-'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
