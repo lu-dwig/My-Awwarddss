@@ -25,3 +25,10 @@ def postList(request):
     posts = Post.objects.all()
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def postDetail(request,pk):
+    posts = Post.objects.get(id=pk)
+    serializer = PostSerializer(posts, many=False)
+    return Response(serializer.data)
+

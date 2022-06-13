@@ -15,10 +15,3 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = ['name', 'image', 'bio', 'location', 'contact']
 
-class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer(read_only=True)
-    posts = PostSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = User
-        fields = ['id', 'url', 'username', 'profile', 'posts']
