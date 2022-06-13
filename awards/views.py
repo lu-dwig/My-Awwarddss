@@ -28,3 +28,14 @@ def home(request):
         # posts = None
     return render(request, 'awards/home.html',  {'form': form})
 
+def searchPhoto(request):
+    query = request.GET.get('query')
+    if query != None:
+        post= Post.objects.filter(title__contains='spice')
+
+    context = {
+        'posts': post,
+        'title':'search post'
+    }
+    return render(request, 'awards/search.html', context)
+ 
