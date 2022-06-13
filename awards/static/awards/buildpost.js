@@ -24,5 +24,16 @@ function buildPost() {
         `
         wrapper.innerHTML += awards
     }
-})
+    for (var i in list) {
+        var viewBtn = document.getElementsByClassName('view-btn')[i]
+
+        viewBtn.addEventListener('click', function(){
+            console.log(list[i].id)
+        })
+
+    }
+
+ })
 }
+
+
