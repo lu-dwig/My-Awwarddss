@@ -38,3 +38,13 @@ def postCreate(request):
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
+
+@api_view(['POST'])
+def postUpdate(request, pk):
+    posts = Post.objects.get(id=pk)
+    
+    serializer = PostSerializer(instance=posts, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        
+    return Response(serializer.data)
