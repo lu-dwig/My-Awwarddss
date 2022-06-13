@@ -32,3 +32,9 @@ def postDetail(request,pk):
     serializer = PostSerializer(posts, many=False)
     return Response(serializer.data)
 
+@api_view(['POST'])
+def postCreate(request):
+    serializer = PostSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+    return Response(serializer.data)
