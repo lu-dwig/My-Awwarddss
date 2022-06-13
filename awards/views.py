@@ -17,15 +17,6 @@ def home(request):
     else:
         form = PostForm()
 
-    # try:
-        # posts = Post.objects.all()
-        # posts = posts[::-1]
-        # x = len(posts)-1
-        # a_post = random.randint(1, 6)
-        # random_post = posts[a_post]
-        # print(random_post.photo)
-    # except Post.DoesNotExist:
-        # posts = None
     return render(request, 'awards/home.html',  {'form': form})
 
 def searchPhoto(request):
