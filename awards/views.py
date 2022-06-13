@@ -49,10 +49,10 @@ def detail(request,pk):
     if request.method == 'POST':
         form = RatingsForm(request.POST)
         if form.is_valid():
-            rating = form.save(commit=True)
-            rating.user = request.user
-            rating.project = post
-            rating.save()
+            ratings = form.save(commit=True)
+            ratings.user = request.user
+            ratings.project = post
+            ratings.save()
             messages.success(request, f'You have successfully voted!')
             rated = True
             return redirect('detail')
@@ -69,4 +69,10 @@ def detail(request,pk):
     }
 
     return render(request, 'awards/detail.html', context)
+def delete(request,pk):
+    url = f'http://127.0.0.1:8000/api/post-delete/{pk}/'
+    res = requests.delete(url)
+    print(res)
+    messages.success(request, 'project deleted successfully!')
+    return redirect('home')
 
