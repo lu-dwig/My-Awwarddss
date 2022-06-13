@@ -17,8 +17,24 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}'
     
+    def delete_post(self):
+        self.delete()
+
+    @classmethod
+    def search_project(cls, title):
+        return cls.objects.filter(title__icontains=title).all()
+
+    @classmethod
+    def all_posts(cls):
+        return cls.objects.all()
+
+    def save_post(self):
+        self.save()
+
+    
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
+    
     
 
 
