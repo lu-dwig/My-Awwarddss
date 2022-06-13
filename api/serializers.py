@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post
+from awards.models import Post
 from users.models import Profile
 from django.contrib.auth.models import User
 
