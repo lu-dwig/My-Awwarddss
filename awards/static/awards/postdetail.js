@@ -1,8 +1,8 @@
-buildList()
+buildPost()
 
-function buildList() {
-    let wrapper = document.getElementById('list-wrapper')
-    let url = 'http://127.0.0.1:8000/api/project-detail/2/'
+function buildPost() {
+    let wrapper = document.getElementById('post-wrapper')
+    let url = 'http://127.0.0.1:8000/api/post-detail/2/'
 
     fetch(url)
     .then((res) => res.json())
