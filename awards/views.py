@@ -48,7 +48,7 @@ def searchPhoto(request):
 
 @login_required(login_url='login') 
 def detail(request,pk):
-    url = f'http://127.0.0.1:8000/postDetail/{pk}/'
+    url = f'http://127.0.0.1:8000/api/postDetail/{pk}/'
     res = requests.get(url)
     if (res.status_code == 200):
         response = res.json()
@@ -84,14 +84,14 @@ def detail(request,pk):
     return render(request, 'awards/post-detail.html', context)
 
 def delete(request,pk):
-    url = f'http://127.0.0.1:8000/postDelete/{pk}/'
+    url = f'http://127.0.0.1:8000/api/postDelete/{pk}/'
     res = requests.delete(url)
     print(res)
     messages.success(request, 'project deleted successfully!')
     return redirect('home')
 
 def create(request):
-    url = f'http://127.0.0.1:8000/postCreate/'
+    url = f'http://127.0.0.1:8000/api/postCreate/'
     res = requests.delete(url)
     print(res)
     messages.success(request, 'project deleted successfully!')
@@ -142,6 +142,6 @@ class PostCreateView(LoginRequiredMixin ,CreateView):
     fields = ['image', 'title', 'url', 'description']
     
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.user = self.request.user
         return super().form_valid(form)
   

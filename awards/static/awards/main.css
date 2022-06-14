@@ -124,3 +124,8 @@ body{
     transform: rotate(135deg);
   }
 }
+
+
+.row{
+  padding-top: 10%;
+}
