@@ -137,3 +137,11 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin ,DeleteView):
             return True
         return False
 
+class PostCreateView(LoginRequiredMixin ,CreateView):
+    model= Post
+    fields = ['image', 'title', 'url', 'description']
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+  
