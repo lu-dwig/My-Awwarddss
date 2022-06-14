@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from pyuploadcare import Uploadcare
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'crispy_forms',
     'rest_framework',
+    'cloudinary',
 ]
 
 UPLOADCARE ={
@@ -136,6 +140,12 @@ STATICFILES_DIR = [
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+cloudinary.config( 
+  cloud_name = "dmoi3jabt", 
+  api_key = "922158296559976", 
+  api_secret = "U-V2Nf12YRGCiKr_-tWkfDqnD8Q" 
+)
 
 
 # Default primary key field type
