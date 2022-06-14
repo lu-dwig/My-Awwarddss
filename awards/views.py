@@ -81,7 +81,7 @@ def detail(request,pk):
         'rated': rated
     }
 
-    return render(request, 'awards/detail.html', context)
+    return render(request, 'awards/post-detail.html', context)
 
 def delete(request,pk):
     url = f'http://127.0.0.1:8000/postDelete/{pk}/'
