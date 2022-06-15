@@ -15,6 +15,6 @@ git push heroku master
 
 heroku run python manage.py makemigrations
 heroku run python manage.py migrate
-# 
-heroku pg:push <The name of the db in the local psql> DATABASE_URL --app <heroku-app>
+ 
+# heroku pg:push <The name of the db in the local psql> DATABASE_URL --app <heroku-app>
 heroku open
