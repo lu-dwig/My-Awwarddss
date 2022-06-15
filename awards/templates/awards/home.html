@@ -2,15 +2,15 @@
 {% block content %}
     {% for post in posts %}
         <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <img style='height: 250px;object-fit:cover;' src="{{post.image}}" class="card-img-top" alt="photo image">
-              <a class="mr-2" href="#">{{ post.user }}</a>
-              <small class="text-muted">{{ post.date|date:"F d, Y" }}</small>
+            <div class="media-body">
+                <div class="article-metadata">
+                    <img style='height: 250px;object-fit:cover;' src="{{post.image}}" class="card-img-top" alt="photo image">
+                    <a class="mr-2" href="#">{{ post.user }}</a>
+                    <small class="text-muted">{{ post.date|date:"F d, Y" }}</small>
+                </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id%}">{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.description }}</p>
             </div>
-            <h2><a class="article-title" href="{% url 'post-detail' post.id%}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.description }}</p>
-          </div>
         </article>
         
     {% endfor %}

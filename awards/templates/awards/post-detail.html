@@ -14,12 +14,12 @@
                 </div>
                 {% if user.id == post.user%}
                     <div class="mb-3 mx-2">
-                        <a href="#" class="btn btn-secondary">update</a>
-                        <a href="{% url 'delete' post.id %}" class="btn btn-danger">
+                        <a class="btn btn-dark btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                        <a href="{% url 'delete' object.id %}" class="btn btn-danger">
                             <i class="bi bi-trash3"></i>
                             delete
                         </a>
-
+                        
                     </div>
                 {% endif %}
             </div>
@@ -29,14 +29,14 @@
     <div class="card" >
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Design: {{ ratings.design }}</li>
-          <li class="list-group-item">Usability:</li>
+          <li class="list-group-item">Usability:{{ ratings.usability }}</li>
           <li class="list-group-item"></li>
         </ul>
       </div>
       {% endfor %}
       {% if rated %}
             <div class="card text-white bg-success my-3 p-3">
-                <h4>you have already voted, voters only vote onece</h4>
+                <h4>you have already rated and you only rate once per app</h4>
             </div>
         {% else %}
             {% if user.is_authenticated%}
@@ -45,7 +45,7 @@
             <form method="POST">
                 {% csrf_token %}
                 {{ form | crispy}}
-                <button class="btn btn-success" type="submit">Rate Please</button>
+                <button class="btn btn-success" type="submit">Rate</button>
             </form>
             </div>
             {% endif %}
