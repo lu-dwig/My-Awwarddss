@@ -12,7 +12,7 @@ import requests
 # Create your views here.
 def home(request):
     response = ''
-    url = 'http://127.0.0.1:8000/api/postList/'
+    url = 'https://dry-coast-64447.herokuapp.com/postList/'
     res = requests.get(url)
     if (res.status_code == 200):
         response = res.json()
@@ -48,7 +48,7 @@ def searchPhoto(request):
 
 @login_required(login_url='login') 
 def detail(request,pk):
-    url = f'http://127.0.0.1:8000/api/postDetail/{pk}/'
+    url = f'https://dry-coast-64447.herokuapp.com/postDetail/{pk}/'
     res = requests.get(url)
     if (res.status_code == 200):
         response = res.json()
@@ -84,14 +84,14 @@ def detail(request,pk):
     return render(request, 'awards/post-detail.html', context)
 
 def delete(request,pk):
-    url = f'http://127.0.0.1:8000/api/postDelete/{pk}/'
+    url = f'https://dry-coast-64447.herokuapp.com/postDelete/{pk}/'
     res = requests.delete(url)
     print(res)
     messages.success(request, 'project deleted successfully!')
     return redirect('home')
 
 def create(request):
-    url = f'http://127.0.0.1:8000/api/postCreate/'
+    url = f'https://dry-coast-64447.herokuapp.com/postCreate/'
     res = requests.delete(url)
     print(res)
     messages.success(request, 'project deleted successfully!')
