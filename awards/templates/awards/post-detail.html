@@ -9,10 +9,10 @@
             <div class="card my-2">
                 <img style='max-width: 100%;max-height:100%;' src="{{post.image}}" class="card-img-top" alt="photo image">
                 <div class="card-body">
-                <p class="card-text">Title: {{post.title}}</p>
-                <p class="card-text">url: {{post.url}}</p>
-                <p class="card-text">Description: {{post.description}}</p>
-                <p class="card-text"><a href='{{post.url}}' target='_blank'> link to live site</a></p>
+                    <p class="card-text">Title: {{post.title}}</p>
+                    <p class="card-text">url: {{post.url}}</p>
+                    <p class="card-text">Description: {{post.description}}</p>
+                    <p class="card-text"><a href='{{post.url}}' target='_blank'> link to live site</a></p>
                 </div>
                 {% if user.id == post.user%}
                     <div class="mb-3 mx-2">

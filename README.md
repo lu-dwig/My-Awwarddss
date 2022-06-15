@@ -53,7 +53,13 @@ python manage.py makemigrations instagram
  ```bash 
  python manage.py test 
 ```
-Open the application on your browser `127.0.0.1:8000`.  
+Open the application on your browser `127.0.0.1:8000`. 
+
+### Api Endpoints
+ * https://dry-coast-64447.herokuapp.com/api/postList/
+ * https://dry-coast-64447.herokuapp.com/api/postDetail/{pk}/
+ * https://dry-coast-64447.herokuapp.com/api/postDelete/{pk}/
+ * https://dry-coast-64447.herokuapp.com/api/postCreate/
   
 ## Technology used  
   
