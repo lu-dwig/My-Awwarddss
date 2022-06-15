@@ -10,7 +10,7 @@ from pyuploadcare.dj.forms import ImageField
 import requests
 
 
-app="https://dry-coast-64447.herokuapp.com/" 
+app='https://dry-coast-64447.herokuapp.com/' 
 # Create your views here.
 def home(request):
     response = ''
