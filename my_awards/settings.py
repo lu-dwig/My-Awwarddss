@@ -90,7 +90,7 @@ if config('MODE') == "dev":
             'USER': config('DB_USER'),
             'PASSWORD': config('DB_PASSWORD'),
             'HOST': 'localhost', # the missing piece of the puzzle 
-
+            'PORT': 8000,
         }
     }
 # production
