@@ -10,11 +10,11 @@ from pyuploadcare.dj.forms import ImageField
 import requests
 
 
-app = 'https://dry-coast-64447.herokuapp.com/' 
+app="https://dry-coast-64447.herokuapp.com/" 
 # Create your views here.
 def home(request):
     response = ''
-    url = '{app}/api/postList/'
+    url = 'https://dry-coast-64447.herokuapp.com/api/postList/'
     res = requests.get(url)
     if (res.status_code == 200):
         response = res.json()
@@ -50,7 +50,7 @@ def searchPhoto(request):
 
 @login_required(login_url='login') 
 def detail(request,pk):
-    url = f'{app}/api/postDetail/{pk}/'
+    url = f'https://dry-coast-64447.herokuapp.com/api/postDetail/{pk}/'
     res = requests.get(url)
     if (res.status_code == 200):
         response = res.json()
@@ -86,14 +86,14 @@ def detail(request,pk):
     return render(request, 'awards/post-detail.html', context)
 
 def delete(request,pk):
-    url = f'{app}/api/postDelete/{pk}/'
+    url = f'https://dry-coast-64447.herokuapp.com/api/postDelete/{pk}/'
     res = requests.delete(url)
     print(res)
     messages.success(request, 'project deleted successfully!')
     return redirect('home')
 
 def create(request):
-    url = f'{app}/api/postCreate/'
+    url = f'https://dry-coast-64447.herokuapp.com/api/postCreate/'
     res = requests.delete(url)
     print(res)
     messages.success(request, 'project deleted successfully!')
